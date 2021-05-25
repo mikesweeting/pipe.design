@@ -1,0 +1,38 @@
+Version 0.5.1 (16th June 2017)
+-------------
+** Corrected error that was returned if constraint argument was left as NULL
+** Updated print.pipe.sim to return more information regarding percentage of doses recommended for Phase II
+** Corrected error where "nodiag" constraint option still allowed dose combinations in which both drugs were escalated simultaneously to be admissible - thanks to Dr Graham Wheeler for reporting this issue.
+** Changed pipe.design so that random number list is updated even if data are encountered for the kth cohort. This then gives same operating behaviour for a single simulated trial and one where part of the data are pre-specified. Thanks for Simon Kirby (Pfizer) for spotting this unwanted behaviour.
+** All of pipe.design's constraints and the non.admissible option have now been addedd to ShinyPIPE
+** print.pipe.sim now also returns the percentage of times a trial recommends 0,1,2,.... doses for Phase II experimentation. 
+
+Version 0.5 (1st May 2017)
+-------------
+* runShinyPIPE reorganised and updated to allow prior.ss as a matrix or the number of prior DLTs (a) and non DLTs (b) matrices to be specified
+* Example added in pipe.design to show how to run a trial in real-time
+
+Version 0.4 (26th April 2016)
+-------------
+* New web browser interface using Shiny; runShinyPIPE()
+* Corrected a bug where the dimensions of the dose-space were incorrectly calculated if parameters a and b were given as argument. Many thanks to Roxane Duroux for spotting this mistake.
+* pipe.design object now return a and b, the parameters of the beta prior for each dose-combination
+* plot.pipe allows an extra plot to be produced that gives the empirical probabilities of DLT (posterior medians) and 95% credible intervals
+* Densities of the posterior probability of toxicity at each dose level can be calculated using the distribution of monotonic contours. These can be plotted after each cohort is recruited.
+
+Version 0.3 (24th July 2015)
+-------------
+* Fixed a bug where program crashes if prior.med is not specified (thanks to Jing Hu for reporting this)
+* pipe.design returns an object "rpII.list" listing all the recommended Phase II dose combinations for each simulation
+
+
+Version 0.2 (12th May 2015)
+-------------
+* Allows non-diagonal escalation in combination with a neighbouring or no.dose.skip constraint
+* Uses a new optimsation algorithm to calculate beta a and b parameters from median and sample size. Previous version did not converge for large sample sizes.
+* Clarify in the help files that the recommendation percentages are the percentage of times each dose combination is recommended over the total number of recommended combinations in the simulated trials (which is often more than N)
+
+
+Version 0.1 (18th March 2015)
+-------------
+* First release. 
